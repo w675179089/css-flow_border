@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='./jquery.js'></script>
+		<style type="text/css">
+	@keyframes lineA{
+    	0%,100%{clip:rect(0,340px,2px,0)}
+    	25%{clip:rect(0,2px,340px,0)}
+    	50%{clip:rect(338px,340px,340px,0)}
+    	75%{clip:rect(0,340px,340px,338px)}
+    }
+    @keyframes lineB{
+      0%,100%{clip:rect(338px,340px,340px,0)}
+      25%{clip:rect(0,340px,340px,338px)}
+      50%{clip:rect(0,340px,2px,0)}
+      75%{clip:rect(0,2px,340px,0)}
+    }
+    .box{
+    	background-color: #f1f1f1;
+    	width: 300px;
+    	height: 300px;
+    	margin: 100px auto;
+    	position: relative;
+    	z-index: 3;
+    	padding: 18px;
+    	border:2px solid rgba(249,134,43,0.7);
+    }
+    .box::before{
+		content: '';
+		position: absolute;
+		left: -2px;
+		top: -2px;
+		bottom:-2px;
+		right: -2px;
+		border: 2px solid rgb(246,132,43);
+		/*margin: -20px;*/
+		z-index: -1;
+		-webkit-animation: lineA 8s linear infinite;
+		-o-animation: lineA 8s linear infinite;
+		animation: lineA 8s linear infinite;
+	border-image: -webkit-linear-gradient( rgb(249,134,43) , rgb(233,122,32)) 30 30;
+border-image: -moz-linear-gradient(rgb(249,134,43) , rgb(233,122,32)) 30 30;
+border-image: linear-gradient( rgb(249,134,43) , rgb(233,122,32)) 30 30;
+    }
+    .box::after{
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    bottom:-2px;
+    right: -2px;
+    border: 2px solid red;
+    /*margin: -20px;*/
+    z-index: -1;
+    -webkit-animation: lineB 8s linear infinite;
+    -o-animation: lineB 8s linear infinite;
+    animation: lineB 8s linear infinite;
+  border-image: -webkit-linear-gradient( rgb(249,134,43) , rgb(233,122,32)) 30 30;
+border-image: -moz-linear-gradient(rgb(249,134,43) , rgb(233,122,32)) 30 30;
+border-image: linear-gradient(  rgb(249,134,43) , rgb(233,122,32)) 30 30;
+    }
+
+		@keyframes move{
+			/*0%{stroke-dashoffset:0;stroke-dasharray:800 800;}
+			100%{stroke-dashoffset:1640;stroke-dasharray:800 800;}*/
+			0%{stroke-dashoffset:0;stroke-dasharray:800 800;}
+			100%{stroke-dashoffset:1640;stroke-dasharray:800 800;}
+		}
+		.svg{width: 700px;height: 700px;margin: 0 auto;}
+
+
+		.sanjiao{animation: move 5s linear infinite;}
+
+ 
+	</style>
+<body>
+	<div class="box"></div>
+
+	 
+	<div class='svg'>
+	 	<svg version='1.1' xmlns="http://www.w3.org/2000/svg" style='width: 100%;height: 100%;'>
+	 		<polygon points='300,10 598,410 50,410 ' style='fill:none;stroke:red;stroke-width:5'></polygon>
+			<polygon points='300,10 598,410 50,410 ' style='fill:none;stroke:yellow;stroke-width:5' class='sanjiao'></polygon>
+	 	</svg>
+ 
+
+
+
+	</div>
+<script>
+
+</script>
+
+
+</body>
+</html>
